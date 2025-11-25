@@ -47,3 +47,4 @@ A straight-up repo for checking how fast different languages run DNN using OpenC
 
 ## Extra info
 For a technical breakdown, hardware/OS setups, or more performance details, see the blog post: “OpenCV DNN speed compare in Python, C#, C++.”
+Contributions and alternate configs welcome, send a PR or open an issue if you’ve got suggestions or new benchmark results.
