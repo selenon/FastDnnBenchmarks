@@ -1,42 +1,51 @@
-# OpenCV DNN Speed Test in Python / C# / C++
-This is a simple test using OpenCv DNN module load [SSD](https://github.com/weiliu89/caffe/tree/ssd/) model running in different language, compare their running speed.
+# FastDnnBenchmarks
 
-## Test environment
-##### Python
-* Python 3.6.3 
-* OpenCv 3.3.0.10 ([opencv-python](https://pypi.python.org/pypi/opencv-python))
-##### C# 
-* .NET Framework 4.7
-* EmguCV 3.3.0.2824
-* OpenCvSharp 3.3.1.20171117 :new: 
-##### C++
-* VC14
-* OpenCv 3.3.1
-#### System
-* Windows 10 Pro 64bit
-#### Hardware
-* Intel Core i7-7820HQ @ 2.90GHz  
-*GPU didn't list because OpenCV DNN module can't enable GPU right now*
-#### Model
-* SSD / PASCAL VOC models : 07++12+COCO: SSD512 from [here](https://github.com/weiliu89/caffe/tree/ssd/#models)
+Compare DNN inference speed in Python, C#, and C++
 
-## Result
-![result chart](https://i.imgur.com/fjbCs3z.png "OpenCV DNN Speed Test Result")
-#### RunTime
-* Python with OpenCV: 1510 ms
-* C# with OpenCvSharp: 1917 ms :new:
-* C# with EmguCV: 4041 ms
-* C++ with OpenCV: 9306 ms  
+## Overview
+A straight-up repo for checking how fast different languages run DNN using OpenCV’s module. SSD models used for the test. No fancy wrappers, just runtime benchmarks and code for exact numbers.
 
+## Tested setups
 
-## Source Code
-* Python : OpenCvSSD.py
-* C++ : OpenCvSsdCplus.cpp
-* C# EmguCV : emguCvSsd.cs
-* C# OpenCvSharp : OpenCvSharpDnn\
----
+- **Python**
+  - Python 3.6.3
+  - OpenCV 3.3.0.10 (`opencv-python`)
 
-More detail please check blog article: [OpenCV DNN speed compare in Python, C#, C++](http://www.died.tw/2017/11/opencv-dnn-speed-compare-in-python-c-c.html).  
-2017/12/15 add [OpenCvSharp Dnn Test](http://www.died.tw/2017/12/c-opencvsharp-dnn-test-with-ssd.html).
+- **C#**
+  - .NET Framework 4.7
+  - EmguCV 3.3.0.2824
+  - OpenCvSharp 3.3.1.20171117
 
----
+- **C++**
+  - VC14
+  - OpenCV 3.3.1
+
+### System Specs
+- Windows 10 Pro 64bit
+- Intel Core i7-7820HQ @ 2.90GHz
+- GPU not used—OpenCV DNN had no GPU support for these tests
+
+### Model
+- SSD / PASCAL VOC — based on VOC 07++12+COCO
+- SSD512, downloaded from original source
+
+## Results
+
+| Language           | DNN Runtime (ms) |
+|--------------------|-----------------|
+| Python + OpenCV    | 1510            |
+| C# + OpenCvSharp   | 1917            |
+| C# + EmguCV        | 4041            |
+| C++ + OpenCV       | 9306            |
+
+## How to run
+- Find code samples for each setup:
+  - Python: `OpenCvSSD.py`
+  - C++: `OpenCvSsdCplus.cpp`
+  - C# (EmguCV): `emguCvSsd.cs`
+  - C# (OpenCvSharp): `OpenCvSharpDnn/`
+
+## Extra info
+For a technical breakdown, hardware/OS setups, or more performance details, see the blog post: “OpenCV DNN speed compare in Python, C#, C++.”
+
+Contributions and alternate configs welcome,  send a PR or open an issue if you’ve got suggestions or new benchmark results.
